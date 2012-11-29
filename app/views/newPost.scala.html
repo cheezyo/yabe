@@ -1,0 +1,53 @@
+@(postForm: Form[Post], tags: List[Tag])
+
+@import helper._
+@main("Welcome to The Category page") {
+@helper.form(action = routes.Posts.submit) {
+
+<fieldset>
+
+    @inputText(
+    postForm("title"),
+    '_label -> "Title"
+    )
+    @textarea(
+    postForm("content"),
+    '_label -> "Content",
+    'cols -> 50,
+    'rows -> 10
+    )
+    @select(
+    postForm("category"),
+    options = options(Posts.getCategories),
+    '_default -> "--- Choose category ---",
+    '_label -> "Category"
+    )
+    @select(
+    postForm("author"),
+    options = options(Posts.getUsers),
+    '_default -> "--- Choose a user ---",
+    '_label -> "User"
+    )
+    
+      <datalist id="dlCities">
+          @for(tag <- tags) {
+        <option value="@tag.name" />
+    }
+    </datalist>
+    
+      @inputText(
+    postForm("tag"),
+    '_label -> "tag",
+    'list -> "dlCities"
+    )
+
+  
+</fieldset>
+
+<div class="actions">
+    <input type="submit" value="Add post" class="button">
+    <a href="@routes.Application.index" class="button">Cancel</a>
+</div>
+}
+
+}

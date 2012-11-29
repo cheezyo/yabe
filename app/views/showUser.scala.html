@@ -1,0 +1,16 @@
+@(user : User, posts : List[Post])
+
+
+
+@main("Welcome to The Category page") {
+    <h3>@user.firstName @user.lastName</h3>
+    <p>@user.email</p>
+    
+    <h2>Post by @user.firstName</h2>
+      @for( post <- posts) {
+      <a href="@routes.Posts.getPost(post.title)"><h3>@post.title</h3></a> 
+      <i> @post.datePosted</i>
+      
+       
+    }    
+}

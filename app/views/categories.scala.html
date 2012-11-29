@@ -1,0 +1,17 @@
+@(categories: List[Category])
+
+@main("Welcome to The Category page") {
+    
+    <h1>List of categories:</h1>
+
+  
+    @for(category <- categories) {
+        <section>
+      <p> <a href="@routes.Categories.getCategory(category.name)">@category.name</a> </p>
+         </section>
+    }
+
+    
+    <a href="@routes.Categories.blank()" class="button">Add new</a>
+  
+}

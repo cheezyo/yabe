@@ -1,0 +1,16 @@
+@(post: Post, user: User)
+
+@main("Welcome to The Category page") {
+    
+ <h1>@post.title</h1>
+ <section>
+ <small><i><a href="@routes.Users.getUser(user.email)">@post.author</a> @post.datePosted</i></small>   
+    <p>@post.content</p>
+    
+    
+ 
+    
+    </section>
+    
+   <a href="@routes.Posts.edit(post.title)" >Edit</a>
+}

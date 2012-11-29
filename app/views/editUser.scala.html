@@ -1,0 +1,44 @@
+@(addUser: Form[User], user : User)
+
+@import helper._
+
+ @helper.form(action = routes.Users.updateUser(user.email)) {
+        
+        <fieldset>
+            <legend>Account informations</legend>
+            
+            @inputText(
+                addUser("firstName"), 
+                '_label -> "Firstname" 
+            )  
+              @inputText(
+                addUser("lastName"), 
+                '_label -> "Firstname" 
+            )
+              @inputText(
+                addUser("email"), 
+                '_label -> "Email" 
+            )
+              @inputText(
+                addUser("password"), 
+                '_label -> "Firstname" 
+            )
+               @inputText(
+                addUser("dateOfBirth"), 
+                '_label -> "Firstname" 
+            )
+               @inputText(
+                addUser("isAdmin"), 
+                '_label -> "Firstname" 
+            )
+        </fieldset>
+        
+ 
+        
+   
+        
+        <div class="actions">
+            <input type="submit" value="Edit">
+            <a href="@routes.Application.index" class="btn">Cancel</a>
+        </div>
+    }

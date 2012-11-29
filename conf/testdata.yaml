@@ -1,0 +1,29 @@
+# Testdata for YABE application
+
+users:
+    - !!models.User
+        firstName:      Aksel
+        lastName:       Gresvig
+        dateOfBirth:    1950-06-22
+        email:          aksel@agresvig.com
+        password:       secret
+        isAdmin:        true
+
+categories: 
+    - !!models.Category
+        name:         Category One
+        dateCreated:  2012-10-20
+    - !!models.Category
+        name:         Category Two
+        dateCreated:  2012-11-09
+    - !!models.Category
+        name:         Category Three
+        dateCreated:  2012-11-10
+    - !!models.Category
+        name:         Category Four
+        dateCreated:  2012-11-11
+
+tags:
+    - !!models.Tag
+        name:           Tag One
+        dateCreated:    2012-10-10

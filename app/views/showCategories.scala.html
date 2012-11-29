@@ -1,0 +1,25 @@
+@(cat: Category ,posts: List[Post], categories: List[Category])
+
+
+@main("Welcome to The Category page") {
+    
+      @for(category <- categories) {
+        
+       @if(category.name == cat.name){
+     <a class="at" href="@routes.Categories.getCategory(category.name)">@category.name</a>
+       }else{
+             <a href="@routes.Categories.getCategory(category.name)">@category.name</a>
+       } 
+
+    }
+   
+     <h1>Listing posts under catergory: @cat.name</h1>
+     
+     @for(post <- posts) {
+     <section>
+     <a href="@routes.Posts.getPost(post.title)"> <h1>@post.title</h1></a> 
+      <small><i>@post.author @post.datePosted</i></small>
+      <p>@post.content</p>
+     </section>  
+    }
+}

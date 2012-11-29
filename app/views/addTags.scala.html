@@ -1,0 +1,20 @@
+@( post: Post, tags: List[Tag])
+
+
+@main("Welcome to The Category page") {
+    
+       <datalist id="dlCities">
+          @for(tag <- tags) {
+        <option value="@tag.name" />
+    }
+    </datalist>
+    
+      @inputText(
+    postForm("tag"),
+    '_label -> "tag",
+    'list -> "dlCities"
+    )
+    
+}
+
+

@@ -1,0 +1,127 @@
+body {
+
+}
+h1,h2,h3,h4,h5{
+	color:#D8C568;
+	margin:0 0 20px 0;
+}
+p{
+	color:#fff;
+	font-weight: 400;
+}
+small{
+	color:#fff;
+}
+a {
+	color: #D89B68;
+	text-decoration: none;
+	font-weight: none;
+	
+}
+a:visited {
+
+}
+
+.at{
+	color:#bf0000;
+}
+fieldset {
+	border: none;
+}
+
+label {
+	float: left;
+	padding: 5px;
+	width: 80px;
+	color: #ddd;
+}
+input[type="text"], textarea {
+	padding: 5px;
+	border-radius: 10px;
+	border: none;
+	background: #ddd;
+	box-shadow: 3px 3px 2px #888;
+}
+#wrapper {
+	width: 900px;
+	margin: 20px auto;
+	box-shadow: 10px 10px 5px #888;
+}
+header {
+	height: 300px;
+	width: 900px;
+}
+header img {
+	width: 900px;
+	height: 300px;
+	border-radius: 10px 10px 0 0;
+}
+nav {
+	height: auto;
+	position: absolute;
+	width: 900px;
+	margin-top: 250px;
+	padding: 10px 0 10px 0;
+}
+
+nav a {
+	text-shadow: #6374AB 20px -12px 2px;
+	padding: 10px;
+	font-size: 1.5em;
+	color: #fff;
+}
+nav a:hover {
+	text-decoration: underline;
+}
+
+article {
+	height: auto;
+	width: 870px;
+	padding: 15px 15px 15px 15px;
+	margin: 0;
+	/* IE10 Consumer Preview */
+	background-image: -ms-linear-gradient(bottom, #123076 0%, #0042E9 100%);
+	/* Mozilla Firefox */
+	background-image: -moz-linear-gradient(bottom, #123076 0%, #0042E9 100%);
+	/* Opera */
+	background-image: -o-linear-gradient(bottom, #123076 0%, #0042E9 100%);
+	/* Webkit (Safari/Chrome 10) */
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #123076), color-stop(1, #0042E9));
+	/* Webkit (Chrome 11+) */
+	background-image: -webkit-linear-gradient(bottom, #123076 0%, #0042E9 100%);
+	/* W3C Markup, IE10 Release Preview */
+	background-image: linear-gradient(to top, #123076 0%, #0042E9 100%);
+}
+.button {
+	padding: 4px 10px 4px 10px;
+	background: #D8C568;
+	color: #333;
+	font-size: 1.2em;
+	margin: 5px;
+	border-radius: 10px;
+}
+article a:hover {
+	text-decoration: underline;
+}
+
+section{
+	width:800px;
+	padding:0 50px 0 50px;
+}
+footer {
+	width: 900px;
+	height: 200px;
+	background: #123077;
+}
+
+footer h1{
+	color:#fff;
+}
+
+#footer-content{
+	float:left;
+	width:300px;
+	
+	margin:100px 0 0 300px;
+	height: 100px;
+}

@@ -1,0 +1,35 @@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>@title</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        <script src="@routes.Assets.at("javascripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
+    </head>
+    <body>
+        <div id="wrapper">
+        <header>
+        <nav>
+        <a href="@routes.Users.showAll()">Users</a>
+        <a href="@routes.Categories.showAll()">Categories</a>
+        <a href="@routes.Posts.showAll()">Posts</a>
+        </nav>
+        <img src="http://www.socialstrand.com/wp-content/uploads/2011/08/blogging_type.jpg" alt="logo"/>
+       
+        </header>
+       
+        <article>
+        @content
+        </article>
+        
+        <footer>
+            <div id="footer-content">
+                <h1>Copyleft Cezar</h1>
+            </div>
+        </footer>
+        </div>
+    </body>
+</html>

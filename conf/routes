@@ -1,0 +1,36 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+GET     /                                   controllers.Application.index()
+
+# User
+GET     /users                              controllers.Users.retrieveAll()
+GET     /user/:email                        controllers.Users.retrieve(email:String)
+GET     /users.html                    		controllers.Users.showAll()
+POST    /newUser                     		controllers.Users.submit()
+GET		/newUser							controllers.Users.blank()
+GET		/showUser/:email					controllers.Users.getUser(email:String)
+GET		/editUser/:email					controllers.Users.edit(email:String)
+POST	/editUser/:email					controllers.Users.updateUser(email:String)
+POST    /user                               controllers.Users.persist()
+PUT     /user                               controllers.Users.update()	
+
+# Category
+GET     /categories                         controllers.Categories.retrieveAll()
+GET     /categories.html                    controllers.Categories.showAll()
+GET		/newCat								controllers.Categories.blank()
+POST    /newCat                     		controllers.Categories.submit()
+GET		/showCategories/:name				controllers.Categories.getCategory(name:String)
+
+
+
+#Post
+GET	/posts									controllers.Posts.showAll()
+GET /newPost								controllers.Posts.blank()
+POST /newPost								controllers.Posts.submit()
+GET /showPost/:name							controllers.Posts.getPost(name:String)
+GET /editPost/:title						controllers.Posts.edit(title:String)
+POST /editPost/:title						controllers.Posts.updatePost(title:String)
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file                       controllers.Assets.at(path="/public", file)

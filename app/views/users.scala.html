@@ -1,0 +1,17 @@
+@(users: List[User])
+
+@main("Welcome to The Category page") {
+
+<h1>List of users:</h1>
+
+   
+    @for(user <- users) {
+        <section>
+      <a href="@routes.Users.getUser(user.email)" ><p> @user.firstName @user.lastName</a> @user.email <a href="@routes.Users.edit(user.email)" >Edit</a></p>
+           </section>
+    }
+
+
+<a href="@routes.Users.blank()" class="button">Add user</a>
+
+}

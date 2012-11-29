@@ -1,0 +1,19 @@
+@(posts: List[Post])
+
+@main("Welcome to The Category page") {
+    
+    <h1>List of Posts:</h1>
+
+ 
+    @for(post <- posts) {
+     <section>
+     <a href="@routes.Posts.getPost(post.title)"> <h1>@post.title</h1></a> 
+      <small><i>@post.author @post.datePosted</i></small>
+      <p>@post.content</p>
+     </section>  
+    }
+  
+    
+    <a href="@routes.Posts.blank()" class="button">Add new</a>
+    
+}

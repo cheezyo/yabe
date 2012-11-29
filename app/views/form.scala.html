@@ -1,0 +1,25 @@
+@(addCat: Form[Category])
+
+@import helper._
+@main("Welcome to The Category page") {
+ @helper.form(action = routes.Categories.submit) {
+        
+        <fieldset>
+            <legend>Account informations</legend>
+            
+            @inputText(
+                addCat("name"), 
+                '_label -> "name" 
+            )  
+        </fieldset>
+        
+ 
+        
+   
+        
+        <div class="actions">
+            <input type="submit" value="Sign Up" class="button">
+            <a href="@routes.Application.index" class="button">Cancel</a>
+        </div>
+    }
+}

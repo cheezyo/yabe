@@ -1,0 +1,44 @@
+@(postForm: Form[Post], post: Post)
+
+
+@import helper._
+@main("Welcome to The Category page") {
+ @helper.form(action = routes.Posts.updatePost(post.title)) {
+        
+        <fieldset>
+            
+            
+            @inputText(
+                postForm("title"), 
+                '_label -> "Title" 
+            )  
+              @textarea(
+                postForm("content"), 
+                '_label -> "Content",
+                'cols -> 50,
+                'rows -> 10 
+            )
+            @select(
+                postForm("category"), 
+                options = options(Posts.getCategories),
+               
+                '_label -> "Category"  
+            )
+            @select(
+                postForm("author"), 
+                options = options(Posts.getUsers),
+                
+                '_label -> "User"  
+            )
+        </fieldset>
+        
+ 
+        
+   
+        
+        <div class="actions">
+            <input type="submit" value="Add post" class="button">
+            <a href="@routes.Application.index" class="button">Cancel</a>
+        </div>
+    }
+}
