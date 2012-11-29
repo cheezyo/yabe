@@ -2,18 +2,26 @@
 
 
 @main("Welcome to The Category page") {
-    
+    <h2>Add tags for your post (@post.title)</h2>
        <datalist id="dlCities">
           @for(tag <- tags) {
         <option value="@tag.name" />
     }
     </datalist>
     
-      @inputText(
-    postForm("tag"),
-    '_label -> "tag",
-    'list -> "dlCities"
-    )
+    <p>Tags:</p>
+    <textarea rows="4" cols="50" id="output"  READONLY></textarea>  <br />
+    <input type="text" id="input" list="dlCities">
+    <a href="javascript:void(0)" onclick="getTags()">Add tag</a>
+    <script>
+        function getTags(){
+        var tag = document.getElementById('input').value;
+        tag += ",";
+        document.getElementById('output').value += tag;
+        document.getElementById('input').value = "";
+        }
+    </script>
+   
     
 }
 

@@ -86,7 +86,7 @@ public class Post extends Model {
         Tag tag = Tag.find.byId(tagName);
         if(tag == null) return;
 
-        Post p = Post.find.byId(postName);
+        Post p = Post.find.where().eq("title", postName).findUnique();;
         if(!p.tags.contains(tag)) {
             p.tags.add(tag);
             p.saveManyToManyAssociations(TAGS_PROPNAME);

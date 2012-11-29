@@ -50,6 +50,7 @@ public class Posts extends Controller {
     public static Result blank() {
     	
     	List<Tag> tags = Tag.find.all();
+    	Logger.debug("" + tags.size());
         return ok(newPost.render(postForm,tags));
     }
     
@@ -70,7 +71,7 @@ public class Posts extends Controller {
     	}
     	return names;
     }
-    public static Reslut addTags(String postTitle){
+    public static Result renderAddTagsForm(String postTitle){
     	
     	Post post = Post.find.where().eq("title", postTitle).findUnique();
     	
@@ -84,11 +85,41 @@ public class Posts extends Controller {
         String content = filledForm.data().get("content");
         String author = filledForm.data().get("author");
         String category = filledForm.data().get("category");
-      
-        Post.create(title, content, author, category);
+        String tagsInput = filledForm.data().get("tag");
+        Post p = Post.create(title, content, author, category);
+        if(! tagsInput.isEmpty()){
+        String [] tags = splitString(tagsInput);
         
+        List<Tag> currentTags = Tag.find.all();
+        
+        boolean createNew = true;
+        for(int i = 0; i < tags.length; i++){
+        	for(int j = 0; j < currentTags.size(); j++){
+        		if(currentTags.get(j).equals(Tag.find.byId(tags[i]))){
+        			
+        			createNew = false;
+        			break;
+        		}
+        	}
+        	if(createNew){
+        		Tag.create(tags[i]);
+        	}
+        	Post.addTag(p.title, tags[i]);
+        	Logger.debug(tags[i]);
+        }
+        }
         
         return showAll();
+    }
+    
+    public static String[] splitString(String tags){
+    	
+    	if(tags.contains(",")){
+    		String [] split = tags.split(",");
+    		return split;
+    	}
+    	
+    	return null;
     }
     
     public static Result updatePost(String title) {

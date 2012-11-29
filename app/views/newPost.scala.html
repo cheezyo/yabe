@@ -28,19 +28,27 @@
     '_default -> "--- Choose a user ---",
     '_label -> "User"
     )
+    @textarea(
+    postForm("tag"),
+    '_label -> "tag",
+    'id -> "output",
+    'cols -> 50,
+    'rows -> 4
     
-      <datalist id="dlCities">
+    )
+    
+      <datalist id="tagList">
           @for(tag <- tags) {
         <option value="@tag.name" />
     }
     </datalist>
     
-      @inputText(
-    postForm("tag"),
-    '_label -> "tag",
-    'list -> "dlCities"
-    )
-
+   
+   <label>Tags:</label>
+    
+    <input type="text" id="input" list="tagList">
+    <a href="javascript:void(0)" onclick="getTags()">Add tag</a>
+   
   
 </fieldset>
 
@@ -48,6 +56,15 @@
     <input type="submit" value="Add post" class="button">
     <a href="@routes.Application.index" class="button">Cancel</a>
 </div>
+
+ <script>
+        function getTags(){
+        var tag = document.getElementById('input').value;
+        tag += ",";
+        document.getElementById('output').value += tag;
+        document.getElementById('input').value = "";
+        }
+    </script>
 }
 
 }
