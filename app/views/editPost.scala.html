@@ -1,4 +1,4 @@
-@(postForm: Form[Post], post: Post)
+@(postForm: Form[Post], post: Post, tags: String)
 
 @import helper._
 @main("Welcome to The Category page") {
@@ -34,9 +34,15 @@
     'id -> "output",
     'cols -> 50,
     'rows -> 4,
-    'disabled -> "disabled"
-
+    'text -> "@tags"
     )
+    
+    @inputText(
+    postForm("de"),
+    '_label -> "Title",
+    'value -> tags
+    )
+    <input type="text" value="@tags" />
 </fieldset>
 
 <div class="actions">

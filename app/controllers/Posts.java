@@ -167,8 +167,15 @@ public class Posts extends Controller {
 	public static Result edit(String title) {
 
 		Post post = Post.find.where().eq("title", title).findUnique();
-
-		return ok(editPost.render(postForm.fill(post), post));
+		String tag="";
+		if(post.tags.size() != 0){
+		List<Tag> tags = post.tags;
+		
+		for(Tag t : tags){
+			tag+=t.name + ",";
+		}
+		}
+		return ok(editPost.render(postForm.fill(post), post,tag));
 	}
 
 	public static Result retrieveAll() {
@@ -186,9 +193,9 @@ public class Posts extends Controller {
 
 		Post post = Post.find.where().eq("title", title).findUnique();
 		User user = post.author;
-
+		
 		Logger.debug(user.email);
-		return ok(showPost.render(post, user));
+		return ok(showPost.render(post, user, post.tags));
 	}
 
 	/**

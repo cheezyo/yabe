@@ -1,4 +1,4 @@
-@(post: Post, user: User)
+@(post: Post, user: User, tags: List[Tag])
 
 @main("Welcome to The Category page") {
     
@@ -6,7 +6,11 @@
  <section>
  <small><i><a href="@routes.Users.getUser(user.email)">@post.author</a> @post.datePosted</i></small>   
     <p>@post.content</p>
-    
+    <p>Tags:
+       @for(tag <- tags) {
+        @tag.name,  
+    }    
+    </p>
     
  
     
